@@ -101,7 +101,7 @@ const members = [
   },
   {
     name: "Donghyeon",
-    img: "images/Donghyeon.jpg",
+    img: "images/members/Donghyeon.jpg",
     mascotImg: "images/mascot/tonyoni.jpg",   // 吉祥物照片
     pos: "50% 0%",
     info:   { 本名: "이동현(李東玹)", 生日: "2007.03.13", 國籍: "韓國", 擔當: "忙內、Vocal", MBTI: "ISFP" },
