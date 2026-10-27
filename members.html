@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KickFlip｜成員</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Noto+Sans+TC:wght@400;700;900&family=Space+Mono:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="members.css">
+</head>
+<body class="body--dark">
+  <div class="page page--dark">
+
+    <header class="header">
+      <a href="index.html" class="header__logo"><img src="images/logo.png" alt="KickFlip logo"></a>
+      <nav class="header__nav">
+        <a href="https://app.fans/shop/kickflip" target="_blank" class="btn-pixel btn-pixel--ghost">商店</a>
+        <button class="btn-pixel btn-pixel--ghost" data-menu-open>其他</button>
+      </nav>
+    </header>
+
+    <div class="marquee marquee--dark"><div class="marquee__track">KickFlip</div></div>
+
+    <main class="profile">
+      <!-- 左側 -->
+      <div class="profile__side">
+        <div class="profile__tabs">
+          <button class="tab is-active" data-tab="info">個人資料 <span>&gt;</span></button>
+          <button class="tab" data-tab="career">經歷 <span>&gt;</span></button>
+          <button class="tab" data-tab="mascot">吉祥物 <span>&gt;</span></button>
+        </div>
+        <div class="profile__panel"></div>
+        <ul class="profile__names"></ul>
+      </div>
+
+      <!-- 右側角色卡 -->
+      <div class="card">
+        <img class="card__photo" src="" alt="">
+        <p class="card__name"></p>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <ul class="footer__info">
+        <li>藝術生涯始於：2025 年</li>
+        <li>最新專輯：KICK OFF THE WALL Pt.1(2026)</li>
+        <li>所屬唱片公司：JYP娛樂</li>
+        <li>首張專輯：Flip it, Kick it!</li>
+      </ul>
+      <div class="footer__social">
+        <a href="https://www.instagram.com/kickflip_jype/" target="_blank" aria-label="Instagram"><img src="images/icon/ig.png" alt=""></a>
+        <a href="https://x.com/kickflip_jype" target="_blank" aria-label="X"><img src="images/icon/x.png" alt=""></a>
+        <a href="https://www.youtube.com/@kickflip_jype/videos" target="_blank" aria-label="YouTube"><img src="images/icon/yt.png" alt=""></a>
+      </div>
+    </footer>
+  </div>
+
+  <div class="menu" aria-hidden="true">
+    <button class="menu__close arrow-link" data-menu-close aria-label="關閉選單">
+      <svg viewBox="0 0 100 20"><path d="M0 10 H92 M84 3 L94 10 L84 17"/></svg>
+    </button>
+    <nav class="menu__list">
+      <a href="members.html">團員</a>
+      <a href="music.html">音樂作品</a>
+      <a href="guide.html">入坑指南</a>
+      <a href="https://kickflip.jype.com/gallery" target="_blank">美術照</a>
+    </nav>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="members.js"></script>
+</body>
+</html>

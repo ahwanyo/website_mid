@@ -1,0 +1,105 @@
+/* =========================================
+   KickFlip 成員頁 — members.css
+   （搭配 style.css 一起使用）
+   ========================================= */
+
+/* ---------- 成員頁 ---------- */
+.body--dark { background: #1e1e1e; }
+.profile {
+  display: flex;
+  gap: 12px;
+  padding: 30px 20px 40px;
+  min-height: 300px;
+}
+.profile__side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.profile__tabs { display: flex; flex-direction: column; gap: 3px; }
+.tab {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding: 2px 0;
+  border: 2px solid var(--green);
+  background: var(--card-bg);
+  font-size: 12px;
+}
+.tab span { position: absolute; right: 8px; font-family: var(--font-pixel); }
+.tab.is-active, .tab:hover { background: var(--green); color: var(--black); }
+
+.profile__panel {
+  margin-top: 10px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #ccc;
+  min-height: 60px;
+}
+.profile__names {
+  margin-top: auto;
+  text-align: right;
+  font-size: 9px;
+  line-height: 1.4;
+}
+.profile__names li { cursor: pointer; transition: color .2s; }
+.profile__names li:hover,
+.profile__names li.is-active { color: var(--green); }
+
+.card {
+  flex: 0 0 48%;
+  align-self: flex-start;      /* 左邊內容變長時，角色卡不會跟著拉長 */
+  border: 2px solid var(--green);
+  background: var(--card-bg);
+  padding: 10px 10px 8px;
+  display: flex;
+  flex-direction: column;
+}
+.card__photo {
+  width: 100%;
+  aspect-ratio: 1 / 1.1;
+  object-fit: cover;
+  transition: opacity .25s;
+}
+.card__photo.is-fading { opacity: 0; }
+.card__name {
+  margin-top: auto;
+  padding-top: 30px;
+  font-size: 13px;
+}
+
+/* ---------- 分頁內容 ---------- */
+/* 個人資料、吉祥物：左邊欄位名、右邊內容 */
+.panel-info {
+  display: grid;
+  grid-template-columns: auto 1fr;   /* 左欄依文字寬度，右欄填滿剩下空間 */
+  gap: 6px 12px;                     /* 上下間距 6px、左右間距 12px */
+}
+.panel-info dt {
+  color: var(--green);
+  white-space: nowrap;               /* 欄位名稱不換行 */
+}
+.panel-info dd { margin: 0; }
+
+/* 經歷：條列 */
+.panel-list li {
+  position: relative;
+  padding-left: 12px;
+}
+.panel-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--green);
+}
+/* 多點的介紹：標題和內容各自占滿整行 */
+.panel-info .is-wide { grid-column: 1 / -1; }
+.panel-info dt.is-wide { margin-top: 6px; }
+.panel-info .panel-list li { margin-bottom: 6px; line-height: 1.6; }
+.panel-info .panel-list b { color: var(--green); font-weight: 700; }
+
+/* 吉祥物照片：整張完整顯示，不裁切 */
+.card__photo.is-mascot {
+  object-fit: contain;
+  background: #1a2a1d;
+}

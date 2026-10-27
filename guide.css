@@ -1,0 +1,206 @@
+/* =========================================
+   KickFlip 入坑指南 — guide.css
+   （搭配 style.css 一起使用）
+   ========================================= */
+
+.page--guide { background: var(--black); color: var(--white); }
+
+
+/* ---------- 主視覺 ---------- */
+.guide-hero {
+  position: relative;            /* 標題靠這行定位，一定要有 */
+  aspect-ratio: 2 / 1;
+  min-height: 200px;
+  overflow: hidden;
+}
+.guide-hero__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+.guide-hero::after {              /* 下方往黑色漸暗 */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,.15) 0%, rgba(0,0,0,.35) 60%, #000 100%);
+}
+
+/* 主視覺上的標題 */
+.guide-hero__title {
+  position: absolute;
+  left: 50%;
+  bottom: 14%;
+  transform: translateX(-50%);
+  z-index: 1;
+  width: max-content;
+  text-align: center;
+}
+.guide-hero__en {
+  display: block;
+  font-family: var(--font-mono);
+  font-style: italic;
+  font-size: 36px;
+  letter-spacing: .05em;
+  color: var(--white);
+  opacity: .9;
+}
+.guide-hero__zh {
+  display: block;
+  margin-top: -18px;
+  font-size: 46px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  color: var(--green);
+  text-shadow: 0 3px 0 #000, 0 0 18px rgba(0, 0, 0, .6);
+}
+/* ---------- 內容區 ---------- */
+.guide-body {
+  position: relative;
+  padding: 24px 40px 50px;       /* 左右留給直式跑馬燈 */
+}
+
+/* 直式跑馬燈 */
+.vmq {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 32px;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--white);
+}
+.vmq--left  { left: 4px; }
+.vmq--right { right: 4px; }
+.vmq .marquee__track {
+  display: block;
+  white-space: nowrap;            /* 排成一直條，不要折成兩排 */
+  writing-mode: vertical-rl;      /* 字轉成直的 */
+  animation: vmarquee 18s linear infinite;
+}
+.vmq--right .marquee__track { animation-direction: reverse; }
+.vmq .marquee__track span { margin: 0 0 22px 0; }
+@keyframes vmarquee {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}
+
+/* ---------- 大播放器 ---------- */
+.player {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #1a1a1a;
+  overflow: hidden;
+}
+.player__thumb,
+.player iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+}
+.player__play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, .15);
+  transition: background .2s;
+}
+.player__play::before {          /* 白色三角形 */
+  content: "";
+  margin-left: 8px;
+  border-left: 34px solid var(--white);
+  border-top: 22px solid transparent;
+  border-bottom: 22px solid transparent;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .5));
+  transition: transform .2s;
+}
+.player__play:hover { background: rgba(0, 0, 0, .3); }
+.player__play:hover::before { transform: scale(1.12); }
+.player__title {
+  margin-top: 8px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #bbb;
+}
+
+/* ---------- 影片分類 ---------- */
+.v-section { margin-top: 26px; }
+.v-section__title {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--green);
+  margin-bottom: 10px;
+}
+.v-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+/* 影片卡片 */
+.v-card {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--green);
+  background: #1c2a1e;
+  color: var(--white);
+  text-align: left;
+  transition: transform .2s, background .2s;
+}
+.v-card:hover { transform: translateY(-3px); background: #26452c; }
+.v-card.is-current { background: #26452c; box-shadow: 0 0 0 2px var(--green); }
+
+.v-card__thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #333;
+}
+.v-card__thumb img { width: 100%; height: 100%; object-fit: cover; }
+.v-card__time {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  padding: 1px 4px;
+  background: rgba(0, 0, 0, .85);
+  font-family: var(--font-mono);
+  font-size: 9px;
+}
+.v-card__title {
+  margin: 6px 6px 0;
+  font-size: 10px;
+  line-height: 1.45;
+  display: -webkit-box;           /* 最多顯示 4 行 */
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.v-card__arrow {
+  width: 64px;
+  margin: auto 6px 6px auto;      /* 推到右下角 */
+  padding-top: 6px;
+  fill: none;
+  stroke: var(--green);
+  stroke-width: 2;
+  transition: transform .2s;
+}
+.v-card:hover .v-card__arrow { transform: translateX(4px); }
+
+/* 還沒貼網址時的提示 */
+.v-card__empty {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 10px;
+  color: #999;
+}
+
+/* 播放清單的標籤（取代影片長度） */
+.v-card__time--list { color: var(--green); }

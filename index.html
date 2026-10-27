@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KickFlip</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Noto+Sans+TC:wght@400;700;900&family=Space+Mono:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+
+    <!-- ===== Header ===== -->
+    <header class="header">
+      <a href="index.html" class="header__logo"><img src="images/logo.png" alt="KickFlip logo"></a>
+      <nav class="header__nav">
+        <a href="https://app.fans/shop/kickflip" class="btn-pixel">商店</a>
+        <button class="btn-pixel" data-menu-open>其他</button>
+      </nav>
+    </header>
+
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="hero__bg"><img src="images/hero.jpg" alt=""></div>
+      <img class="hero__photo" src="images/hero.jpg" alt="KickFlip 團體照">
+      <svg class="hero__blob" viewBox="0 0 360 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,45 C15,22 55,18 80,45 C95,62 105,95 125,95 C150,80 200,78 250,82 C280,85 295,80 305,65 C320,40 335,5 360,0 L360,120 L0,120 Z"/>
+      </svg>
+      <img class="hero__logo" src="images/logo.png" alt="">
+    </section>
+
+    <!-- ===== Marquee ===== -->
+    <div class="marquee"><div class="marquee__track">KickFlip</div></div>
+
+    <!-- ===== 團隊介紹 ===== -->
+    <section class="section" id="about">
+      <h2 class="section-title">
+        <span class="section-title__en">INTRODUCE</span>
+        <span class="section-title__zh">團隊介紹</span>
+      </h2>
+      <p class="about__text">
+        KickFlip（韓語：킥플립），是韓國JYP娛樂推出的七人男子團體。其中四位成員為SBS選秀節目《LOUD》所選出，包括啟訓、Amaru、Keiju及東玹；其餘三名成員為JYP娛樂旗下未公開練習生，分別為東花、主汪及旻帝。2025年1月6日發佈出道先行曲《음 그래 (Umm Great)》，1月20日發佈迷你專輯《Flip it, Kick it!》正式出道。2025年5月26日，於首次回歸Showcase公布官方粉絲名「WeFlip」（韓語：위플립），由「We」和「KickFlip」組合而成，象徵著KickFlip與粉絲並肩前行、永遠在一起的意涵。
+      </p>
+      <div class="about__links">
+        <button class="btn-pixel" data-video="https://www.youtube.com/shorts/KgsZQ49J2sc">JYP</button>
+        <a href="members.html" class="btn-pixel">團員</a>
+        <a href="music.html" class="btn-pixel">歌曲</a>
+        <a href="guide.html" class="btn-pixel">入坑指南</a>
+      </div>
+    </section>
+
+    <!-- ===== 成員介紹 ===== -->
+    <section class="section section--members" id="members">
+      <h2 class="section-title">
+        <span class="section-title__en">INTRODUCE</span>
+        <span class="section-title__zh">成員介紹</span>
+      </h2>
+
+      <div class="member-slider">
+        <button class="member-slider__arrow member-slider__arrow--prev" aria-label="上一位">&lt;</button>
+        <div class="member-row"></div>
+        <button class="member-slider__arrow member-slider__arrow--next" aria-label="下一位">&gt;</button>
+      </div>
+
+      <a href="members.html" class="arrow-link arrow-link--label">
+        <span>看成員介紹</span>
+        <svg viewBox="0 0 100 20"><path d="M0 10 H92 M84 3 L94 10 L84 17"/></svg>
+      </a>
+    </section>
+
+    <!-- ===== 音樂作品 ===== -->
+    <section class="section section--music" id="music">
+      <h2 class="section-title section-title--light">
+        <span class="section-title__en">INTRODUCE</span>
+        <span class="section-title__zh">音樂作品</span>
+      </h2>
+
+      <div class="music">
+        <img class="music__bg" src="" alt="">
+        <button class="music__arrow music__arrow--prev" aria-label="上一首">&lt;</button>
+
+        <div class="vinyl">
+          <div class="vinyl__disc">
+            <img class="vinyl__cover" src="" alt="專輯封面">
+          </div>
+          <button class="vinyl__play" aria-label="播放">
+            <span class="icon-play"></span>
+          </button>
+        </div>
+
+        <button class="music__arrow music__arrow--next" aria-label="下一首">&gt;</button>
+      </div>
+      <p class="music__title"></p>
+      <audio class="music__audio"></audio>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer" id="footer">
+      <ul class="footer__info">
+        <li>藝術生涯始於：2025 年</li>
+        <li>最新專輯：KICK OFF THE WALL Pt.1(2026)</li>
+        <li>所屬唱片公司：JYP娛樂</li>
+        <li>首張專輯：KICK OFF THE WALL Pt.1</li>
+      </ul>
+      <div class="footer__social">
+        <a href="https://www.instagram.com/kickflip_jype/" aria-label="Instagram"><img src="images/icon/ig.png" alt=""></a>
+        <a href="https://x.com/kickflip_jype" aria-label="X"><img src="images/icon/x.png" alt=""></a>
+        <a href="https://www.youtube.com/@kickflip_jype/videos" aria-label="YouTube"><img src="images/icon/yt.png" alt=""></a>
+      </div>
+    </footer>
+  </div>
+
+    <!-- ===== 其他選單 ===== -->
+  <div class="menu" aria-hidden="true">
+    <button class="menu__close arrow-link" data-menu-close aria-label="關閉選單">
+      <svg viewBox="0 0 100 20"><path d="M0 10 H92 M84 3 L94 10 L84 17"/></svg>
+    </button>
+    <nav class="menu__list">
+      <a href="members.html">團員</a>
+      <a href="music.html">音樂作品</a>
+      <a href="guide.html">入坑指南</a>
+      <a href="https://kickflip.jype.com/gallery" target="_blank">美術照</a>
+    </nav>
+  </div>
+
+  <!-- ===== 影片彈出視窗 ===== -->
+  <div class="video-modal" aria-hidden="true">
+    <div class="video-modal__box">
+      <button class="video-modal__close" aria-label="關閉影片">✕</button>
+      <div class="video-modal__frame"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

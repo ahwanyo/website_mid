@@ -1,0 +1,335 @@
+/* =========================================
+   KickFlip 音樂作品頁 — music.css
+   （搭配 style.css 一起使用）
+   ========================================= */
+
+.page--music { background: #000; }
+.page--music .header { position: relative; }
+
+/* ---------- 上半部綠色漸層 ---------- */
+.music-top {
+  background: linear-gradient(to bottom, #a3f56d 0%, #a3f56d 58%, #6cbc45 85%, #4c8f2f 100%);
+  padding-bottom: 40px;
+}
+
+/* ---------- 黑膠輪播 ---------- */
+.disc-stage {
+  position: relative;
+  height: 290px;
+  margin-top: 16px;
+  z-index: 2;                 /* 蓋在跑馬燈上面 */
+}
+.disc-track { position: absolute; inset: 0; }
+
+.disc {
+  --size: 290px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--size);
+  height: var(--size);
+  margin-left: calc(var(--size) / -2);
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(.5);
+  transition: transform .5s ease, opacity .5s ease, filter .5s ease;
+}
+/* data-off：跟目前專輯的距離（0 = 中間） */
+.disc[data-off="0"]  { opacity: 1; pointer-events: auto; transform: none; z-index: 3; }
+.disc[data-off="-1"] { opacity: 1; pointer-events: auto; transform: translateX(-235px) scale(.82); filter: brightness(.5); z-index: 2; }
+.disc[data-off="1"]  { opacity: 1; pointer-events: auto; transform: translateX(235px)  scale(.82); filter: brightness(.5); z-index: 2; }
+.disc[data-off="-2"] { transform: translateX(-420px) scale(.6); }
+.disc[data-off="2"]  { transform: translateX(420px)  scale(.6); }
+.disc[data-off="-3"] { transform: translateX(-420px) scale(.6); }
+.disc[data-off="3"]  { transform: translateX(420px)  scale(.6); }
+
+.disc__vinyl {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: repeating-radial-gradient(circle, #0c0c0c 0 2px, #000 2px 4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  display: grid;
+  place-items: center;
+}
+.disc.is-playing .disc__vinyl { animation: spin 4s linear infinite; }   /* spin 定義在 style.css */
+.disc__cover {
+  width: 58%;
+  height: 58%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* 中間的播放鍵 */
+.disc-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  z-index: 4;
+}
+.disc-play__icon {
+  width: 0;
+  height: 0;
+  margin-left: 6px;
+  border-left: 30px solid var(--white);
+  border-top: 19px solid transparent;
+  border-bottom: 19px solid transparent;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .4));
+}
+.disc-stage.is-playing .disc-play__icon {
+  width: 26px;
+  height: 36px;
+  margin: 0;
+  border: none;
+  border-left: 9px solid var(--white);
+  border-right: 9px solid var(--white);
+}
+
+/* 左右像素箭頭 */
+.disc-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  padding: 10px;
+  font-family: var(--font-pixel);
+  font-size: 44px;
+  line-height: 1;
+  color: var(--white);
+  transition: transform .15s;
+}
+.disc-arrow--prev { left: 30px; }
+.disc-arrow--next { right: 30px; }
+.disc-arrow:hover { transform: translateY(-50%) scale(1.15); }
+
+/* ---------- 三排跑馬燈 ---------- */
+.mq-rows {
+  position: relative;
+  z-index: 1;                 /* 在唱片下面 */
+  margin-top: -36px;
+}
+.mq {
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--white);
+}
+.mq .marquee__track { animation-duration: 16s; }
+.mq .marquee__track span { margin-right: 22px; }
+.mq--reverse .marquee__track { animation-direction: reverse; }
+.mq:nth-child(3) .marquee__track { animation-duration: 20s; }
+
+/* 目前專輯的名稱 */
+.disc-caption {
+  margin-top: 14px;
+  text-align: center;
+  font-family: var(--font-pixel);
+  font-size: 13px;
+  letter-spacing: .08em;
+  color: var(--black);
+}
+.disc-caption b { font-family: var(--font-zh); font-weight: 900; }
+
+/* ---------- NEW RELEASE ---------- */
+.new { padding: 26px 0 0; }
+.new__title {
+  margin-left: 22px;
+  font-family: "Oswald", var(--font-zh);
+  font-weight: 500;
+  font-size: 44px;
+  letter-spacing: .01em;
+  color: var(--black);
+}
+.tracks {
+  margin: 18px 44px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  height: 48px;
+  padding: 0 12px 0 10px;
+  background: #1c2a1e;
+  border: 2px solid var(--green);
+  color: var(--white);
+  text-align: left;
+  overflow: hidden;
+  transition: background .2s, transform .2s;
+}
+.track:hover { background: #26452c; transform: translateX(4px); }
+
+/* 播放進度條（下緣） */
+.track::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: var(--p, 0%);
+  background: var(--green);
+  transition: width .25s linear;
+}
+
+/* 小圖 + 上面的播放／暫停圖示 */
+.track__thumb { position: relative; flex: 0 0 32px; width: 32px; height: 32px; }
+.track__thumb img { width: 100%; height: 100%; object-fit: cover; }
+.track__icon {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, .5);
+  opacity: 0;
+  transition: opacity .2s;
+}
+.track__icon::before {               /* ▶ */
+  content: "";
+  margin-left: 2px;
+  border-left: 10px solid var(--white);
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+}
+.track:hover .track__icon,
+.track.is-playing .track__icon,
+.track.is-paused .track__icon { opacity: 1; }
+.track.is-playing .track__icon::before {   /* ❚❚ */
+  width: 8px;
+  height: 11px;
+  margin: 0;
+  border: none;
+  border-left: 3px solid var(--white);
+  border-right: 3px solid var(--white);
+}
+
+/* 正在播的那首 */
+.track.is-playing,
+.track.is-paused { background: #26452c; }
+.track.is-playing .track__name,
+.track.is-paused .track__name { color: var(--green); }
+.track__name {
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+  letter-spacing: .1em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.track__time {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--green);
+}
+
+/* ---------- 發行內容 ---------- */
+.release {
+  background: var(--black);
+  padding: 22px 0 46px;
+}
+.release__title {
+  margin-left: 20px;
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--green);
+}
+.release__row {
+  position: relative;
+  height: 250px;
+  margin-top: 20px;
+}
+.rel-item {
+  --w: 120px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--w);
+  margin-left: calc(var(--w) / -2);
+  text-align: center;
+  color: var(--white);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform .5s ease, opacity .5s ease;
+}
+.rel-item img {
+  display: block;
+  width: var(--w);
+  height: var(--w);
+  object-fit: cover;
+  transition: box-shadow .5s, filter .5s;
+}
+.rel-item p {
+  margin-top: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  line-height: 1.3;
+  transition: color .5s;
+}
+
+/* 兩側：在上面、變暗、稍小 */
+.rel-item[data-off="-1"],
+.rel-item[data-off="1"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+.rel-item[data-off="-1"] { transform: translateX(-148px) scale(.88); }
+.rel-item[data-off="1"]  { transform: translateX(148px)  scale(.88); }
+.rel-item[data-off="-1"] img,
+.rel-item[data-off="1"] img  { filter: brightness(.45) grayscale(.4); }
+.rel-item[data-off="-1"] p,
+.rel-item[data-off="1"] p    { color: #777; }
+
+/* 中間：往下錯開、放大、綠框 */
+.rel-item[data-off="0"] {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(56px) scale(1.12);
+  z-index: 2;
+}
+.rel-item[data-off="0"] img { box-shadow: 0 0 0 3px var(--green), 0 12px 30px rgba(124, 255, 79, .25); }
+.rel-item[data-off="0"] p   { color: var(--green); }
+
+/* 更外面的先藏起來 */
+.rel-item[data-off="-2"] { transform: translateX(-300px) scale(.7); }
+.rel-item[data-off="2"]  { transform: translateX(300px)  scale(.7); }
+.rel-item[data-off="-3"] { transform: translateX(-300px) scale(.7); }
+.rel-item[data-off="3"]  { transform: translateX(300px)  scale(.7); }
+
+/* 中間那張：封面上的「▶ YouTube」標籤 */
+.rel-item__cover { position: relative; display: block; }
+.rel-item__yt {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%);
+  padding: 2px 8px;
+  background: rgba(0, 0, 0, .8);
+  border: 1px solid var(--green);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  white-space: nowrap;
+  color: var(--green);
+  opacity: 0;
+  transition: opacity .3s;
+}
+.rel-item[data-off="0"] .rel-item__yt { opacity: 1; }
+.rel-item[data-off="0"]:hover img { filter: brightness(.8); }
+.rel-item[data-off="0"] { cursor: pointer; }
+
+.rel-item[data-off="-1"]:hover img,
+.rel-item[data-off="1"]:hover img { filter: brightness(.75); }

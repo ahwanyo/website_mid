@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KickFlip｜音樂作品</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Noto+Sans+TC:wght@400;700;900&family=Oswald:wght@500&family=Space+Mono:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="music.css">
+</head>
+<body>
+  <div class="page page--music">
+
+    <!-- ===== 上半部：綠色區 ===== -->
+    <div class="music-top">
+      <header class="header">
+        <a href="index.html" class="header__logo"><img src="images/logo.png" alt="KickFlip logo"></a>
+        <nav class="header__nav">
+          <a href="https://kickflip.jype.com" target="_blank" class="btn-pixel">商店</a>
+          <button class="btn-pixel" data-menu-open>其他</button>
+        </nav>
+      </header>
+
+      <!-- 黑膠輪播：唱片由 music.js 產生 -->
+      <section class="disc-stage" aria-label="專輯輪播">
+        <div class="disc-track"></div>
+        <button class="disc-play" aria-label="播放"><span class="disc-play__icon"></span></button>
+        <button class="disc-arrow disc-arrow--prev" aria-label="上一張">&lt;</button>
+        <button class="disc-arrow disc-arrow--next" aria-label="下一張">&gt;</button>
+        <audio class="disc-audio"></audio>
+      </section>
+
+      <!-- 三排跑馬燈 -->
+      <div class="mq-rows" aria-hidden="true">
+        <div class="mq"><div class="marquee__track">KickFlip</div></div>
+        <div class="mq mq--reverse"><div class="marquee__track">WeFlip</div></div>
+        <div class="mq"><div class="marquee__track">KickFlip</div></div>
+      </div>
+
+      <p class="disc-caption"></p>
+
+      <!-- NEW RELEASE -->
+      <section class="new">
+        <h2 class="new__title">NEW RELEASE</h2>
+        <ul class="tracks"></ul>
+      </section>
+    </div>
+
+    <!-- ===== 發行內容：黑色區 ===== -->
+    <section class="release">
+      <h2 class="release__title">發行內容</h2>
+      <div class="release__row"></div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+      <ul class="footer__info">
+        <li>藝術生涯始於：2025 年</li>
+        <li>最新專輯：KICK OFF THE WALL Pt. 1 (2026)</li>
+        <li>所屬唱片公司：JYP娛樂</li>
+        <li>首張專輯：Flip it, Kick it!</li>
+      </ul>
+      <div class="footer__social">
+        <a href="https://www.instagram.com/kickflip_jype/" target="_blank" aria-label="Instagram"><img src="images/icon/ig.png" alt=""></a>
+        <a href="https://x.com/kickflip_jype" target="_blank" aria-label="X"><img src="images/icon/x.png" alt=""></a>
+        <a href="https://www.youtube.com/@kickflip_jype" target="_blank" aria-label="YouTube"><img src="images/icon/yt.png" alt=""></a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ===== 其他選單 ===== -->
+  <div class="menu" aria-hidden="true">
+    <button class="menu__close arrow-link" data-menu-close aria-label="關閉選單">
+      <svg viewBox="0 0 100 20"><path d="M0 10 H92 M84 3 L94 10 L84 17"/></svg>
+    </button>
+    <nav class="menu__list">
+      <a href="members.html">團員</a>
+      <a href="music.html">音樂作品</a>
+      <a href="guide.html">入坑指南</a>
+      <a href="https://kickflip.jype.com" target="_blank">官網・美術照</a>
+    </nav>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="music.js"></script>
+</body>
+</html>
