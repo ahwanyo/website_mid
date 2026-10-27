@@ -6,7 +6,7 @@
 const members = [
   {
     name: "Kyehoon",
-    img: "images/members/kyehoon.jpg",
+    img: "images/members/Kyehoon.JPG",
     mascotImg: "images/mascot/kyesoongi.jpg",   // 吉祥物照片
     pos: "50% 20%",
     info:   { 本名: "이계훈 (李啟訓)", 生日: "2004.09.16", 國籍: "韓國", 擔當: "隊長、Ace", MBTI: "ISFP" },
@@ -23,7 +23,7 @@ const members = [
   },
   {
     name: "Amaru",
-    img: "images/members/amaru.jpg",
+    img: "images/members/Amaru.jpg",
     mascotImg: "",   // 吉祥物照片
     pos: "50% 30%",
     info:   { 本名: "満行亜丸(Mitsuyuki Amaru)", 生日: "2005.10.21", 國籍: "日本", 擔當: "Vocal、Rap", MBTI: "ISTP" },
@@ -32,7 +32,7 @@ const members = [
   },
   {
     name: "Donghwa",
-    img: "images/members/donghwa.jpg",
+    img: "images/members/Donghwa.JPG",
     mascotImg: "images/mascot/hwadongi.jpg",   // 吉祥物照片
     pos: "50% 25%",
     info:   { 本名: "이동화(李東花)", 生日: "2006.03.11", 國籍: "韓國",擔當: "Dance", MBTI: "INTJ" },
@@ -49,7 +49,7 @@ const members = [
   },
   {
     name: "Juwang",
-    img: "images/members/juwang.jpg",
+    img: "images/members/Juwang.JPG",
     mascotImg: "images/mascot/jjuangi.jpg",   // 吉祥物照片
     pos: "50% 20%",
     info:   { 本名: "장주왕(張主汪)", 生日: "2006.05.02", 國籍: "韓國", 擔當: "Vocal",MBTI: "ISFP" },
@@ -67,7 +67,7 @@ const members = [
   },
   {
     name: "Minje",
-    img: "images/members/minje.jpg",
+    img: "images/members/Minje.JPG",
     mascotImg: "images/mascot/woolmingi.jpg",   // 吉祥物照片
     pos: "50% 20%",
     info:   { 本名: "최민제(崔旻帝)", 生日: "2006.05.12", 國籍: "韓國／紐西蘭", 擔當: "Rap",MBTI: "INTP" },
@@ -84,7 +84,7 @@ const members = [
   },
   {
     name: "Keiju",
-    img: "images/members/keiju.jpg",
+    img: "images/members/Keiju.JPG",
     mascotImg: "images/mascot/nyangori.jpg",   // 吉祥物照片
     pos: "50% 30%",
     info:   { 本名: "岡本佳樹(Okamoto Keiju)", 生日: "2006.10.04", 國籍: "日本",擔當: "Dance", MBTI: "INFP" },
