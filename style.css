@@ -355,7 +355,11 @@ body {
   transition: opacity .3s, transform .3s;
 }
 .menu.is-open { opacity: 1; pointer-events: auto; transform: translateX(0); }
-.menu__close { margin: 30px 24px 0 auto; }
+.menu__close {
+  position: relative;
+  z-index: 1;               /* 讓箭頭浮在選單文字區上面，才點得到 */
+  margin: 30px 24px 0 auto;
+}
 .menu__list {
   flex: 1;
   display: flex;
