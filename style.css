@@ -357,7 +357,7 @@ body {
 .menu.is-open { opacity: 1; pointer-events: auto; transform: translateX(0); }
 .menu__close {
   position: relative;
-  z-index: 1;               /* 讓箭頭浮在選單文字區上面，才點得到 */
+  z-index: 1;
   margin: 30px 24px 0 auto;
 }
 .menu__list {
@@ -369,7 +369,7 @@ body {
   gap: 36px;
   font-size: 22px;
   font-weight: 700;
-  margin-top: -80px;
+  
 }
 .menu__list a { transition: color .2s; }
 .menu__list a:hover { color: var(--green); }
